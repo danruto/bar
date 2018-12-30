@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "semi": ["error", "never"],
+    "import/extensions": ["error", "never", {
+      "css": "always",
+      "jsx": "always"
+    }],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off"
+  }
+}

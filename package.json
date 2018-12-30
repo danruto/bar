@@ -1,0 +1,32 @@
+{
+  "name": "bar",
+  "version": "1.0.0",
+  "description": "Bar is an  [Übersicht](https://github.com/felixhageloh/uebersicht) widget that places a customizable bar on your desktop.",
+  "main": "index.jsx",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adwinying/bar.git"
+  },
+  "author": "Adwin Ying",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adwinying/bar/issues"
+  },
+  "homepage": "https://github.com/adwinying/bar#readme",
+  "devDependencies": {
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.6.3"
+  }
+}
