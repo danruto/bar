@@ -5,6 +5,7 @@ import { cpu as config } from '../lib/config'
 const style = {
   wrapper: {
     ...wrapper,
+    paddingRight: '5px',
     ...config.style.wrapper,
   },
   icon: {
@@ -15,8 +16,8 @@ const style = {
 
 const render = ({ data }) => (
   <span style={style.wrapper}>
-    { data }
     <i className="fas fa-chart-area" style={style.icon} />
+    { data }
   </span>
 )
 
