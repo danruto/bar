@@ -1,4 +1,5 @@
 import { wrapper, icon } from '../lib/style'
+import { danger, text } from '../lib/colorscheme'
 import { battery as config } from '../lib/config'
 
 const style = {
@@ -8,7 +9,6 @@ const style = {
   },
   icon: {
     ...icon,
-    fontSize: '16px',
     ...config.style.icon,
   },
 }
@@ -17,15 +17,15 @@ const style = {
 const battColor = (percentage) => {
   const num = parseInt(percentage, 10)
 
-  if (num > 80) return '#97c475' // Green
-  if (num > 55) return '#e5c07b' // Yellow
-  if (num > 30) return '#d09a6a' // Orange
-  return '#e06c75' // Red
+  if (num < 20) return danger
+
+  return text
 }
 
-const iconName = (percentage) => {
+const iconName = (percentage, state) => {
   const num = parseInt(percentage, 10)
 
+  if (state === 'AC') return 'plug'
   if (num > 80) return 'battery-full'
   if (num > 60) return 'battery-three-quarters'
   if (num > 40) return 'battery-half'
@@ -35,16 +35,18 @@ const iconName = (percentage) => {
 
 
 const render = ({ data }) => {
+  const { percentage, state } = data
+
   const wrapperStyle = {
     ...style.wrapper,
-    color: battColor(data),
+    color: battColor(percentage),
   }
 
-  const iconClass = `far fa-${iconName(data)}`
+  const iconClass = `far fa-${iconName(percentage, state)}`
 
   return (
     <span style={wrapperStyle}>
-      <span>{data}</span>
+      <span>{percentage}</span>
       <i className={iconClass} style={style.icon} />
     </span>
   )

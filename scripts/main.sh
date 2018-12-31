@@ -2,7 +2,8 @@
 
 PWD=$(pwd)/bar/scripts
 
-BATTERY=$(bash "$PWD/battery.sh")
+BATT_PERCENT=$(bash "$PWD/battery.sh")
+BATT_STATE=$(bash "$PWD/charging.sh")
 WORKSPACE=$(bash "$PWD/workspace.sh")
 SPOTIFY=$(bash "$PWD/nowplaying.sh")
 CPU=$(bash "$PWD/load_average.sh")
@@ -11,7 +12,10 @@ TIME=$(bash "$PWD/time.sh")
 
 echo $(cat <<-EOF
 {
-  "battery": "$BATTERY",
+  "battery": {
+    "percentage": "$BATT_PERCENT",
+    "state": "$BATT_STATE"
+  },
   "workspace": "$WORKSPACE",
   "spotify": "$SPOTIFY",
   "cpu": "$CPU",
