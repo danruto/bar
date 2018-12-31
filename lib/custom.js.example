@@ -1,0 +1,17 @@
+/**
+ * custom.js
+ *
+ * custom configs go here.
+ */
+
+export const workspace = {
+  spaces: [
+    'fas fa-cat',
+    'fas fa-paw',
+    'fas fa-paw',
+    'fas fa-paw',
+    'fas fa-paw',
+  ],
+}
+
+export default null
