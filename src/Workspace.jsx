@@ -28,7 +28,7 @@ const iconStyle = (isActive) => {
 }
 
 const space = (index, data) => {
-  const isActive = index === parseInt(data, 10)
+  const isActive = index + 1 === parseInt(data, 10)
   const iconClass = (config.spaces && config.spaces[index])
     || 'fas fa-circle'
 
