@@ -32,7 +32,7 @@ const space = (index, data) => {
   const iconClass = (config.spaces && config.spaces[index])
     || 'fas fa-circle'
 
-  return <i className={iconClass} style={iconStyle(isActive)} />
+  return <i key={index} className={iconClass} style={iconStyle(isActive)} />
 }
 
 const numOfSpaces = (config.spaces && config.spaces.length) || 5
