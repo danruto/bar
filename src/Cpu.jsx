@@ -13,9 +13,9 @@ const style = {
   },
 }
 
-const render = () => (
+const render = ({ data }) => (
   <span style={style.wrapper}>
-    CPU
+    { data }
     <i className="fas fa-chart-area" style={style.icon} />
   </span>
 )

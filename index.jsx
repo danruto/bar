@@ -43,7 +43,7 @@ const Left = ({ data }) => (
 
 const Right = ({ data }) => (
   <div style={style.right}>
-    <Cpu />
+    <Cpu data={data.cpu} />
     <Battery data={data.battery} />
     <Time />
   </div>
