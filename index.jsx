@@ -27,11 +27,11 @@ const style = {
   },
   left: {
     position: 'absolute',
-    left: '5px',
+    left: '16px',
   },
   right: {
     position: 'absolute',
-    right: '5px',
+    right: '16px',
   },
 }
 
@@ -45,7 +45,7 @@ const Right = ({ data }) => (
   <div style={style.right}>
     <Cpu data={data.cpu} />
     <Battery data={data.battery} />
-    <Time />
+    <Time data={data.time} />
   </div>
 )
 
