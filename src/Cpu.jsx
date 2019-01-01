@@ -5,7 +5,6 @@ import { cpu as config } from '../lib/config'
 const style = {
   wrapper: {
     ...wrapper,
-    paddingRight: '5px',
     ...config.style.wrapper,
   },
   icon: {

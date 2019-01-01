@@ -1,14 +1,10 @@
-import { wrapper, icon } from '../lib/style'
+import { wrapper } from '../lib/style'
 import { time as config } from '../lib/config'
 
 const style = {
   wrapper: {
     ...wrapper,
     ...config.style.wrapper,
-  },
-  icon: {
-    ...icon,
-    ...config.style.icon,
   },
 }
 

@@ -3,6 +3,7 @@ import Spotify from './src/Spotify.jsx'
 import Mail from './src/Mail.jsx'
 import Cpu from './src/Cpu.jsx'
 import Battery from './src/Battery.jsx'
+import Input from './src/Input.jsx'
 import Time from './src/Time.jsx'
 
 import { background, text } from './lib/colorscheme'
@@ -46,6 +47,7 @@ const Right = ({ data }) => (
   <div style={style.right}>
     <Mail data={data.mail} />
     <Cpu data={data.cpu} />
+    <Input data={data.input} />
     <Battery data={data.battery} />
     <Time data={data.time} />
   </div>
