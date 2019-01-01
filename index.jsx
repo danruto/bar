@@ -28,11 +28,11 @@ const style = {
   },
   left: {
     position: 'absolute',
-    left: '16px',
+    left: '18px',
   },
   right: {
     position: 'absolute',
-    right: '16px',
+    right: '18px',
   },
 }
 

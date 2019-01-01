@@ -17,7 +17,7 @@ echo $(cat <<-EOF
     "percentage": "$BATT_PERCENT",
     "state": "$BATT_STATE"
   },
-  "workspace": "$WORKSPACE",
+  "workspace": $WORKSPACE,
   "spotify": "$SPOTIFY",
   "mail": "$MAIL",
   "cpu": "$CPU",
