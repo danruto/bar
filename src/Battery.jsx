@@ -35,6 +35,8 @@ const iconName = (percentage, state) => {
 
 
 const render = ({ data }) => {
+  if (!data) return ''
+
   const { percentage, state } = data
 
   const wrapperStyle = {

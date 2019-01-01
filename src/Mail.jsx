@@ -14,7 +14,9 @@ const style = {
 }
 
 const render = ({ data }) => {
-  if (!data) return ''
+  const unreadCount = parseInt(data, 10)
+
+  if (unreadCount === 0) return ''
 
   return (
     <span style={style.wrapper}>
