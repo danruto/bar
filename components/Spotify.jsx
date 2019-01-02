@@ -1,6 +1,9 @@
 import { wrapper, icon } from '../lib/style'
 import { spotify as config } from '../lib/config'
 
+export const refreshFrequency = config.refreshRate || 15000
+export const command = './bar/scripts/spotify.sh'
+
 const style = {
   wrapper: {
     ...wrapper,
@@ -17,15 +20,13 @@ const style = {
   },
 }
 
-const render = ({ data }) => {
-  if (!data) return ''
+export const render = ({ output }) => {
+  if (!output) return ''
 
   return (
     <span style={style.wrapper}>
       <i className="fab fa-spotify" style={style.icon} />
-      { data }
+      { output }
     </span>
   )
 }
-
-export default render

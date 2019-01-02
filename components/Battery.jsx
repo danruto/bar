@@ -1,6 +1,16 @@
-import { wrapper, icon } from '../lib/style'
+import { wrapper, root, icon } from '../lib/style'
 import { danger, text } from '../lib/colorscheme'
 import { battery as config } from '../lib/config'
+import parseResult from '../lib/parse'
+
+export const refreshFrequency = config.refreshRate || 60000
+export const command = './bar/scripts/battery.sh'
+
+export const className = {
+  ...root,
+  order: config.order || 27,
+}
+
 
 const style = {
   wrapper: {
@@ -34,8 +44,10 @@ const iconName = (percentage, state) => {
 }
 
 
-const render = ({ data }) => {
-  if (!data) return ''
+export const render = ({ output }) => {
+  if (!output) return ''
+
+  const data = parseResult(output)
 
   const { percentage, state } = data
 
@@ -48,10 +60,8 @@ const render = ({ data }) => {
 
   return (
     <span style={wrapperStyle}>
-      <span>{percentage}</span>
       <i className={iconClass} style={style.icon} />
+      <span>{percentage}</span>
     </span>
   )
 }
-
-export default render

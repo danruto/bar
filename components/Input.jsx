@@ -1,10 +1,18 @@
-import { wrapper, icon } from '../lib/style'
+import { wrapper, root, icon } from '../lib/style'
 import { input as config } from '../lib/config'
+
+export const refreshFrequency = config.refreshRate || 5000
+export const command = './bar/scripts/input_source.sh'
+
+export const className = {
+  ...root,
+  order: config.order || 28,
+}
+
 
 const style = {
   wrapper: {
     ...wrapper,
-    paddingRight: '5px',
     ...config.style.wrapper,
   },
   icon: {
@@ -29,11 +37,13 @@ const inputName = (type) => {
   }
 }
 
-const render = ({ data }) => (
-  <span style={style.wrapper}>
-    <i className="fas fa-keyboard" style={style.icon} />
-    {inputName(data)}
-  </span>
-)
+export const render = ({ output }) => {
+  const data = output.trim()
 
-export default render
+  return (
+    <span style={style.wrapper}>
+      <i className="fas fa-keyboard" style={style.icon} />
+      {inputName(data)}
+    </span>
+  )
+}

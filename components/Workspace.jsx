@@ -1,10 +1,21 @@
-import { wrapper, icon } from '../lib/style'
+import { wrapper, icon, root } from '../lib/style'
 import { text, textDim } from '../lib/colorscheme'
 import { workspace as config } from '../lib/config'
+import parseResult from '../lib/parse'
+
+export const refreshFrequency = config.refreshRate || 15000
+export const command = './bar/scripts/workspace.sh'
+
+export const className = {
+  ...root,
+  order: config.order || 1,
+}
+
 
 const style = {
   wrapper: {
     ...wrapper,
+    marginLeft: '22px',
     ...config.style.wrapper,
   },
   mode: {
@@ -51,12 +62,14 @@ const space = (index, data) => {
   return <i key={index} className={iconClass} style={iconStyle(isActive)} />
 }
 
-const render = ({ data }) => {
-  if (!data) return ''
+export const render = ({ output }) => {
+  if (!output) return ''
 
-  if (data === 'chunkc not found') {
+  if (output.includes('chunkc not found')) {
     return <div style={style.wrapper}>chunkWM not installed</div>
   }
+
+  const data = parseResult(output)
 
   const { active, total, mode } = data
   const workspaces = []
@@ -74,5 +87,3 @@ const render = ({ data }) => {
     </div>
   )
 }
-
-export default render
