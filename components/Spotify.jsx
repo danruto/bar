@@ -21,7 +21,7 @@ const style = {
 }
 
 export const render = ({ output }) => {
-  if (!output) return ''
+  if (!output.trim()) return ''
 
   return (
     <span style={style.wrapper}>

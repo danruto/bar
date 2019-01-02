@@ -6,7 +6,7 @@ export const command = './bar/scripts/mail.sh'
 
 export const className = {
   ...root,
-  order: config.order || 25,
+  order: config.order || 24,
 }
 
 
