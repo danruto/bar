@@ -32,8 +32,6 @@ const style = {
 export const render = ({ error }) => {
   if (error) throw new Error(error)
 
-  // geolocation.getCurrentPosition((d) => console.log(d))
-
   return (
     <div style={style.bar}>
       <style>{rootStyle}</style>

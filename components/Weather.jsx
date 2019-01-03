@@ -46,7 +46,7 @@ export const command = (dispatch) => {
     data,
   })
 
-  const resetState = updateState(initialState)
+  const resetState = () => updateState(initialState)
 
   const positionOptions = {
     maximumAge: refreshFrequency,
