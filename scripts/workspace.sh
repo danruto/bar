@@ -1,19 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if ! [ -x "$(command -v chunkc)" ]; then
-  echo "chunkc not found"
-  exit 1
-fi
+chunkc=/usr/local/bin/chunkc
 
-ACTIVE=$(chunkc tiling::query -d id)
-TOTAL=$(chunkc tiling::query -D 1 | tail -c 1)
-MODE=$(chunkc tiling::query -d mode)
+ACTIVE=$($chunkc tiling::query -d id)
+TOTAL=$($chunkc tiling::query -D 1 | tail -c 1)
+MODE=$($chunkc tiling::query -d mode)
+CURRENT_WINDOW=$($chunkc tiling::query --window name)
+
+CURRENT_MONITOR=$($chunkc tiling::query --monitor id)
+DESKTOPS_FOR_MONITOR=$($chunkc tiling::query --desktops-for-monitor $CURRENT_MONITOR)
 
 echo $(cat <<-EOF
 {
   "active": "$ACTIVE",
   "total": "$TOTAL",
-  "mode": "$MODE"
+  "mode": "$MODE",
+  "currentWindow": "$CURRENT_WINDOW",
+  "currentMonitor": "$CURRENT_MONITOR"
 }
 EOF
 )

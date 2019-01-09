@@ -30,23 +30,23 @@ const style = {
 }
 
 
-const iconStyle = (isActive) => {
-  if (isActive) {
-    return {
-      ...style.icon,
-      color: text,
-    }
-  }
+// const iconStyle = (isActive) => {
+//   if (isActive) {
+//     return {
+//       ...style.icon,
+//       color: text,
+//     }
+//   }
 
-  return style.icon
-}
+//   return style.icon
+// }
 
 const modeIcon = (mode) => {
   switch (mode) {
     case 'monocle':
-      return 'fas fa-clone'
+      return 'fas fa-clone' // 2 rect
     case 'bsp':
-      return 'fas fa-th-large'
+      return 'fas fa-th-large' // 4 square
     case 'float':
       return 'fas fa-parachute-box'
     default:
@@ -54,36 +54,27 @@ const modeIcon = (mode) => {
   }
 }
 
-const space = (index, data) => {
-  const isActive = index + 1 === parseInt(data, 10)
-  const iconClass = (config.spaces && config.spaces[index])
-    || 'fas fa-circle'
+// const space = (index, data) => {
+//   const isActive = index + 1 === parseInt(data, 10)
+//   const iconClass = (config.spaces && config.spaces[index])
+//     || 'fas fa-circle'
 
-  return <i key={index} className={iconClass} style={iconStyle(isActive)} />
-}
+//   return <i key={index} className={iconClass} style={iconStyle(isActive)} />
+// }
 
 export const render = ({ output }) => {
   if (!output) return ''
 
-  if (output.includes('chunkc not found')) {
-    return <div style={style.wrapper}>chunkWM not installed</div>
-  }
-
   const data = parseResult(output)
 
-  const { active, total, mode } = data
-  const workspaces = []
-
-  for (let i = 0; i < total; i += 1) {
-    workspaces.push(space(i, active))
-  }
+  const { active, total, mode, currentMonitor, currentWindow } = data
 
   return (
     <div style={style.wrapper}>
       <span>
         <i className={modeIcon(mode)} style={style.mode} />
+        <span>{ currentMonitor }&nbsp; - { currentWindow }&nbsp;</span>
       </span>
-      { workspaces }
     </div>
   )
 }
